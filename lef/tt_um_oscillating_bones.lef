@@ -162,7 +162,7 @@ MACRO tt_um_oscillating_bones
   PIN uio_oe[0]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 130.279999 ;
+    ANTENNADIFFAREA 135.805801 ;
     PORT
       LAYER met4 ;
         RECT 34.350 224.760 34.650 225.760 ;
@@ -227,7 +227,7 @@ MACRO tt_um_oscillating_bones
   PIN uio_out[0]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 130.279999 ;
+    ANTENNADIFFAREA 135.805801 ;
     PORT
       LAYER met4 ;
         RECT 56.430 224.760 56.730 225.760 ;
@@ -236,7 +236,7 @@ MACRO tt_um_oscillating_bones
   PIN uio_out[1]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 130.279999 ;
+    ANTENNADIFFAREA 135.805801 ;
     PORT
       LAYER met4 ;
         RECT 53.670 224.760 53.970 225.760 ;
@@ -245,7 +245,7 @@ MACRO tt_um_oscillating_bones
   PIN uio_out[2]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 130.279999 ;
+    ANTENNADIFFAREA 135.805801 ;
     PORT
       LAYER met4 ;
         RECT 50.910 224.760 51.210 225.760 ;
@@ -254,7 +254,7 @@ MACRO tt_um_oscillating_bones
   PIN uio_out[3]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 130.279999 ;
+    ANTENNADIFFAREA 135.805801 ;
     PORT
       LAYER met4 ;
         RECT 48.150 224.760 48.450 225.760 ;
@@ -263,7 +263,7 @@ MACRO tt_um_oscillating_bones
   PIN uio_out[4]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 130.279999 ;
+    ANTENNADIFFAREA 135.805801 ;
     PORT
       LAYER met4 ;
         RECT 45.390 224.760 45.690 225.760 ;
@@ -272,7 +272,7 @@ MACRO tt_um_oscillating_bones
   PIN uio_out[5]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 130.279999 ;
+    ANTENNADIFFAREA 135.805801 ;
     PORT
       LAYER met4 ;
         RECT 42.630 224.760 42.930 225.760 ;
@@ -368,7 +368,6 @@ MACRO tt_um_oscillating_bones
   PIN ua[0]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 4.500000 ;
     ANTENNADIFFAREA 15.434999 ;
     PORT
       LAYER met4 ;

@@ -70,9 +70,9 @@ N 500 -490 520 -490 {lab=osc_div_4}
 N 500 -470 520 -470 {lab=osc_div_8}
 N 150 -210 200 -210 {lab=ua[0]}
 N 170 -210 170 -190 {lab=ua[0]}
-N 260 -210 280 -210 {lab=osc_div_3v3}
-N 280 -210 280 -190 {lab=osc_div_3v3}
-N 280 -210 420 -210 {lab=osc_div_3v3}
+N 260 -210 280 -210 {lab=osc_out_3v3}
+N 280 -210 280 -190 {lab=osc_out_3v3}
+N 280 -210 420 -210 {lab=osc_out_3v3}
 N 500 -210 500 -200 {lab=VGND}
 N 480 -210 500 -210 {lab=VGND}
 C {devices/code.sym} 200 -690 0 0 {name=TT_MODELS
@@ -156,7 +156,7 @@ C {devices/vdd.sym} 400 -360 0 0 {name=l8 lab=VDPWR}
 C {devices/vsource.sym} 400 -330 0 0 {name=V4 value=1.8}
 C {lab_pin.sym} 380 -450 2 0 {name=p6 sig_type=std_logic lab=ua[0]}
 C {res.sym} 450 -210 1 0 {name=R1
-value=1Meg
+value=7Meg
 footprint=1206
 device=resistor
 m=1}

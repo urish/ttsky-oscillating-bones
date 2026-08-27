@@ -9,7 +9,7 @@ R24 VGND osc_div_8 1Meg
 V2 0 VGND 0
 V3 VAPWR VGND 3.3
 V4 VDPWR VGND 1.8
-R1 VGND osc_out_3v3 1Meg
+R1 VGND osc_out_3v3 7Meg
 R2 osc_out_3v3 ua[0] 500
 C1 ua[0] 0 2.5p
 C2 osc_out_3v3 0 2.5p
@@ -62,9 +62,10 @@ write testbench.raw
 *.opin uo_out[3]
 *.opin ua[0]
 x22 uo_out[1] uo_out[2] uo_out[3] uo_out[0] freq_divider
-x1 net1 ring
-x2 ua[0] uo_out[0] VDPWR skullfet_inverter_5v_pwr
-x4 net1 ua[0] VAPWR skullfet_inverter_5v_pwr
+x1 net2 ring
+x2 net1 uo_out[0] VDPWR skullfet_inverter_5v_pwr
+x4 net2 net1 VAPWR skullfet_inverter_5v_pwr
+x5 net1 ua[0] VAPWR skullfet_inverter_5v_pwr
 .ends
 
 
