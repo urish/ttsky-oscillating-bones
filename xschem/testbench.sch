@@ -1,8 +1,9 @@
-v {xschem version=3.4.6 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.3}
 G {}
 K {}
 V {}
 S {}
+F {}
 E {}
 B 2 610 -600 1410 -200 {flags=graph
 y1=-0.37667006
@@ -35,6 +36,7 @@ T {tcleval(osc_freq=[concat [ev [xschem raw value osc_freq_mhz 0]] " MHz"])} 610
 T {tcleval(osc_div_2_freq=[concat [ev [xschem raw value osc_div_2_freq_mhz 0]] " MHz"])} 610 -660 0 0 0.4 0.4 {floater=1}
 T {tcleval(osc_div_4_freq=[concat [ev [xschem raw value osc_div_4_freq_mhz 0]] " MHz"])} 1110 -690 0 0 0.4 0.4 {floater=1}
 T {tcleval(osc_div_8_freq=[concat [ev [xschem raw value osc_div_8_freq_mhz 0]] " MHz"])} 1110 -660 0 0 0.4 0.4 {floater=1}
+T {Model tt analog pad parasitics} 170 -150 0 0 0.4 0.4 {floater=1}
 N 380 -540 380 -530 {lab=osc_out}
 N 380 -540 480 -540 {lab=osc_out}
 N 480 -540 480 -530 {lab=osc_out}
@@ -61,17 +63,19 @@ N 480 -490 500 -490 {lab=osc_div_4}
 N 480 -510 500 -510 {lab=osc_div_2}
 N 480 -530 500 -530 {lab=osc_out}
 N 340 -300 400 -300 {lab=VGND}
-N 380 -460 380 -450 {lab=osc_out_3v3}
-N 380 -460 480 -460 {lab=osc_out_3v3}
-N 350 -450 380 -450 {lab=osc_out_3v3}
+N 350 -450 380 -450 {lab=ua[0]}
 N 500 -530 520 -530 {lab=osc_out}
 N 500 -510 520 -510 {lab=osc_div_2}
 N 500 -490 520 -490 {lab=osc_div_4}
 N 500 -470 520 -470 {lab=osc_div_8}
-N 500 -450 520 -450 {lab=osc_out_3v3}
-N 480 -460 500 -460 {lab=osc_out_3v3}
-N 500 -460 500 -450 {lab=osc_out_3v3}
-C {devices/code.sym} 90 -220 0 0 {name=TT_MODELS
+N 150 -210 200 -210 {lab=ua[0]}
+N 170 -210 170 -190 {lab=ua[0]}
+N 260 -210 280 -210 {lab=osc_div_3v3}
+N 280 -210 280 -190 {lab=osc_div_3v3}
+N 280 -210 420 -210 {lab=osc_div_3v3}
+N 500 -210 500 -200 {lab=VGND}
+N 480 -210 500 -210 {lab=VGND}
+C {devices/code.sym} 200 -690 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -82,7 +86,7 @@ value="
 "
 spice_ignore=false}
 C {tt_um_oscillating_bones.sym} 200 -490 0 0 {name=x1}
-C {devices/code.sym} 240 -220 0 0 {name=STIMULI only_toplevel=false value="
+C {devices/code.sym} 60 -690 0 0 {name=STIMULI only_toplevel=false value="
 
 .tran 50p 200n
 .save all
@@ -150,9 +154,27 @@ C {devices/gnd.sym} 250 -300 0 0 {name=l6 lab=VGND}
 C {devices/vdd.sym} 250 -360 0 0 {name=l7 lab=VAPWR}
 C {devices/vdd.sym} 400 -360 0 0 {name=l8 lab=VDPWR}
 C {devices/vsource.sym} 400 -330 0 0 {name=V4 value=1.8}
-C {lab_pin.sym} 380 -450 2 0 {name=p6 sig_type=std_logic lab=osc_out_3v3}
-C {res.sym} 550 -450 1 0 {name=R1
+C {lab_pin.sym} 380 -450 2 0 {name=p6 sig_type=std_logic lab=ua[0]}
+C {res.sym} 450 -210 1 0 {name=R1
 value=1Meg
 footprint=1206
 device=resistor
 m=1}
+C {lab_pin.sym} 150 -210 0 0 {name=p7 sig_type=std_logic lab=ua[0]}
+C {res.sym} 230 -210 1 0 {name=R2
+value=500
+footprint=1206
+device=resistor
+m=1}
+C {parax_cap.sym} 170 -180 0 0 {name=C1
+m=1
+value=2.5p
+footprint=1206
+device="ceramic capacitor"}
+C {parax_cap.sym} 280 -180 0 0 {name=C2
+m=1
+value=2.5p
+footprint=1206
+device="ceramic capacitor"}
+C {lab_wire.sym} 320 -210 2 0 {name=p8 sig_type=std_logic lab=osc_out_3v3}
+C {devices/gnd.sym} 500 -200 0 0 {name=l9 lab=VGND}
