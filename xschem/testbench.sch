@@ -36,7 +36,7 @@ T {tcleval(osc_freq=[concat [ev [xschem raw value osc_freq_mhz 0]] " MHz"])} 610
 T {tcleval(osc_div_2_freq=[concat [ev [xschem raw value osc_div_2_freq_mhz 0]] " MHz"])} 610 -660 0 0 0.4 0.4 {floater=1}
 T {tcleval(osc_div_4_freq=[concat [ev [xschem raw value osc_div_4_freq_mhz 0]] " MHz"])} 1110 -690 0 0 0.4 0.4 {floater=1}
 T {tcleval(osc_div_8_freq=[concat [ev [xschem raw value osc_div_8_freq_mhz 0]] " MHz"])} 1110 -660 0 0 0.4 0.4 {floater=1}
-T {Model tt analog pad parasitics} 170 -150 0 0 0.4 0.4 {floater=1}
+T {Model tt analog pad parasitics} 60 -130 0 0 0.4 0.4 {floater=1}
 N 380 -540 380 -530 {lab=osc_out}
 N 380 -540 480 -540 {lab=osc_out}
 N 480 -540 480 -530 {lab=osc_out}
@@ -68,13 +68,10 @@ N 500 -530 520 -530 {lab=osc_out}
 N 500 -510 520 -510 {lab=osc_div_2}
 N 500 -490 520 -490 {lab=osc_div_4}
 N 500 -470 520 -470 {lab=osc_div_8}
-N 150 -210 200 -210 {lab=ua[0]}
-N 170 -210 170 -190 {lab=ua[0]}
-N 260 -210 280 -210 {lab=osc_out_3v3}
-N 280 -210 280 -190 {lab=osc_out_3v3}
-N 280 -210 420 -210 {lab=osc_out_3v3}
-N 500 -210 500 -200 {lab=VGND}
-N 480 -210 500 -210 {lab=VGND}
+N 540 -200 540 -190 {lab=VGND}
+N 520 -200 540 -200 {lab=VGND}
+N 360 -200 440 -200 {lab=osc_out_3v3}
+N 440 -200 460 -200 {lab=osc_out_3v3}
 C {devices/code.sym} 200 -690 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
@@ -155,26 +152,12 @@ C {devices/vdd.sym} 250 -360 0 0 {name=l7 lab=VAPWR}
 C {devices/vdd.sym} 400 -360 0 0 {name=l8 lab=VDPWR}
 C {devices/vsource.sym} 400 -330 0 0 {name=V4 value=1.8}
 C {lab_pin.sym} 380 -450 2 0 {name=p6 sig_type=std_logic lab=ua[0]}
-C {res.sym} 450 -210 1 0 {name=R1
-value=7Meg
+C {res.sym} 490 -200 1 0 {name=R1
+value=10Meg
 footprint=1206
 device=resistor
 m=1}
-C {lab_pin.sym} 150 -210 0 0 {name=p7 sig_type=std_logic lab=ua[0]}
-C {res.sym} 230 -210 1 0 {name=R2
-value=500
-footprint=1206
-device=resistor
-m=1}
-C {parax_cap.sym} 170 -180 0 0 {name=C1
-m=1
-value=2.5p
-footprint=1206
-device="ceramic capacitor"}
-C {parax_cap.sym} 280 -180 0 0 {name=C2
-m=1
-value=2.5p
-footprint=1206
-device="ceramic capacitor"}
-C {lab_wire.sym} 320 -210 2 0 {name=p8 sig_type=std_logic lab=osc_out_3v3}
-C {devices/gnd.sym} 500 -200 0 0 {name=l9 lab=VGND}
+C {lab_pin.sym} 60 -200 0 0 {name=p7 sig_type=std_logic lab=ua[0]}
+C {lab_wire.sym} 360 -200 2 0 {name=p8 sig_type=std_logic lab=osc_out_3v3}
+C {devices/gnd.sym} 540 -190 0 0 {name=l9 lab=VGND}
+C {pad_model.sym} 210 -190 0 0 {name=x2}

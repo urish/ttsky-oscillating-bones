@@ -9,10 +9,8 @@ R24 VGND osc_div_8 1Meg
 V2 0 VGND 0
 V3 VAPWR VGND 3.3
 V4 VDPWR VGND 1.8
-R1 VGND osc_out_3v3 7Meg
-R2 osc_out_3v3 ua[0] 500
-C1 ua[0] 0 2.5p
-C2 osc_out_3v3 0 2.5p
+R1 VGND osc_out_3v3 10Meg
+x2 ua[0] osc_out_3v3 pad_model
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -66,6 +64,29 @@ x1 net2 ring
 x2 net1 uo_out[0] VDPWR skullfet_inverter_5v_pwr
 x4 net2 net1 VAPWR skullfet_inverter_5v_pwr
 x5 net1 ua[0] VAPWR skullfet_inverter_5v_pwr
+.ends
+
+
+* expanding   symbol:  pad_model.sym # of pins=2
+** sym_path: /foss/designs/ttsky-oscillating-bones/xschem/pad_model.sym
+** sch_path: /foss/designs/ttsky-oscillating-bones/xschem/pad_model.sch
+.subckt pad_model pin mod
+*.iopin pin
+*.iopin mod
+XM1 net3 VAPWR mod VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=60 nf=12 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+XM2 net3 VGND mod VAPWR sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=180 nf=18 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
+C1 pin VGND 2p
+R1 net1 pin 1
+L1 net2 net1 1n
+C2 net2 VGND 3p
+R2 net3 net2 50
+C3 mod VGND 250f
+XM3 net3 VGND VGND VGND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=60 nf=12 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=15 m=15
+XM4 net3 VAPWR VGND VAPWR sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=180 nf=18 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=15 m=15
 .ends
 
 
